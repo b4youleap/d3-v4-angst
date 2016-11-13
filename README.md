@@ -37,3 +37,8 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+var url = 'http://localhost:5000/sales';
+//fetch data from rest API
+d3.json( url,  function(error, data) {
+  if (error) throw error;
