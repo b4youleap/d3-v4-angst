@@ -1,0 +1,37 @@
+export class Peril {
+  _id: string;
+  _rev: string;
+  threatLevel: number;
+  place: string;
+  eventTime: number;
+  eventUpdated: number;
+  tz: number;
+  url: string;
+  detail: string;
+  felt: number;
+  cdi: number;
+  mmi: number;
+  alert: string;
+  status: string;
+  tsunami: number;
+  sig: number;
+  net: string;
+  code: string;
+  ids: string;
+  sources: string;
+  types: string;
+  nst: number;
+  dmin: number;
+  rms: number;
+  gap: number;
+  magType: string;
+  ptype: string;
+  location: string;
+  gtype: string;
+  longitude: number;
+  latitude: number;
+  depth: number;
+  id: string;
+  fipsnumber: string;
+  fipsalpha: string;
+}
