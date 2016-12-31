@@ -14,11 +14,11 @@ Original commit - trying to adapt this approach to create a reusable map compone
 via that module.
 
 I've also reinstalled d3 using typings using the following commands:
-`npm install d3 --save
-npm install @types/d3 --save-dev`
+`npm install d3 --save`
+`npm install @types/d3 --save-dev`
 ---
 
-This project was originally generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17. *It has been updated to use version 1.0.0-beta.24*
+This project was originally generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17. **It has been updated to use version 1.0.0-beta.24**
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
