@@ -6,7 +6,6 @@ Simple example of creating a reusable D3 chart component.
 
 See http://keathmilligan.net/create-reusable-chart-components-with-angular-2-and-d3-js-version-4/ for more information about this example.
 
----
 UPDATES: (b4youleap) 
 Original commit - trying to adapt this approach to create a reusable map component... and then read data from an API.
 
@@ -16,7 +15,6 @@ via that module.
 I've also reinstalled d3 using typings using the following commands:
 `npm install d3 --save`
 `npm install @types/d3 --save-dev`
----
 
 This project was originally generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17. **It has been updated to use version 1.0.0-beta.24**
 
