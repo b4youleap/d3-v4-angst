@@ -7,7 +7,15 @@ Simple example of creating a reusable D3 chart component.
 See http://keathmilligan.net/create-reusable-chart-components-with-angular-2-and-d3-js-version-4/ for more information about this example.
 
 ---
-UPDATE: (b4youleap) - trying to adapt this approach to create a reusable map component... and then read data from an API.
+UPDATES: (b4youleap) 
+Original commit - trying to adapt this approach to create a reusable map component... and then read data from an API.
+
+12/30/2016 - I just learned that shared components can (at least enforced by cli) only be exposed via modules. This new version adds a shared module and exposes the components
+via that module.
+
+I've also reinstalled d3 using typings using the following commands:
+* npm install d3 --save
+* npm install @types/d3 --save-dev
 ---
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
@@ -40,7 +48,3 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-var url = 'http://localhost:5000/sales';
-//fetch data from rest API
-d3.json( url,  function(error, data) {
-  if (error) throw error;
