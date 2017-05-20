@@ -14,13 +14,14 @@ export class MapComponent implements OnInit, OnChanges {
   @ViewChild('map') private mapContainer: ElementRef;
   @Input() private mapdata: Array<any>;
   private margin: any = { top: 20, bottom: 20, left: 20, right: 20};
-  private map: any;
+  private svg: any;
   private width: number;
   private height: number;
-  /* private albersProjection: any;
-  private geoPath: any;
-  private barTooltip: any;
-  private tip: any; */
+  private projection: any;
+  private path: any;
+
+  // private barTooltip: any;
+  // private tip: any; 
 
   constructor() { }
 
@@ -38,10 +39,8 @@ export class MapComponent implements OnInit, OnChanges {
     var geoPath = d3.geoPath()
         .projection( albersProjection );
 */
-    this.createMap();
-    if (this.mapdata) {
-      this.updateMap();
-    }
+    this.setMap();
+    
   }
 
   ngOnChanges() {
@@ -50,36 +49,56 @@ export class MapComponent implements OnInit, OnChanges {
     } */
   }
 
-  createMap() {
-    let element = this.mapContainer.nativeElement;
-    this.width = element.offsetWidth - this.margin.left - this.margin.right;
-    this.height = element.offsetHeight - this.margin.top - this.margin.bottom;
-    // this.map.centered;
+  setMap() {
+    this.width = 960;
+    this.height = 580;
 
-    var albersProjection = d3.geoAlbersUsa()
+    this.projection= d3.geoAlbersUsa()
         .scale( 1000 )
         .translate( [this.width/2,this.height/2] );
 
-    // d3.v3 call was d3.geo.path()
-    var geoPath = d3.geoPath()
-        .projection( albersProjection );
+    this.path = d3.geoPath()
+        .projection( this.projection );
 
-    let svg = d3.select(element).append("svg")
+    let element = this.mapContainer.nativeElement;
+
+    this.svg = d3.select(element).append("svg")
         .attr("width", element.offsetWidth)
         .attr("height", element.offsetHeight);
 
-    this.map = svg.append("g");
+    this.svg.append("g");
 
-    this.map.selectAll( "path" )
-        .data( states_json.features )
-        .enter()
-        .append( "path" )
+    this.loadData();
+    
+  }
+
+  loadData() {
+    d3.queue()
+      .defer(d3.json, states_json.features)
+      .defer(d3.json, quakes_json.features)
+      .await(this.processData);
+  }
+
+  processData(error, states, perilData) {
+    var test = 1;
+    this.drawMap();
+  }
+
+  drawMap() {
+    this.svg.selectAll("states")
+      .data(states_json)
+      .enter()
+      .append( "path" )
         .attr( "fill", "#1c5785" )
         .attr( "class", "state" )
-        .attr( "d", geoPath );
+        .attr( "d", this.path );
 
   }
 
+  animateMap() {
+
+  }
+/*
   updateMap() {
     let element = this.mapContainer.nativeElement;
     var barTooltip = d3.select(element).append("div")
@@ -111,6 +130,12 @@ export class MapComponent implements OnInit, OnChanges {
         .duration(500)
         .style("opacity", 0);
       }) 
-  }
+} */
 
 }
+
+/**
+ * see http://bl.ocks.org/rgdonohue/9280446 for an older v3 example of map animation.
+ * 
+ * this looks fun too... http://www.tnoda.com/blog/2014-04-02
+ */

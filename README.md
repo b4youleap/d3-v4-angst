@@ -6,7 +6,7 @@ Simple example of creating a reusable D3 chart component.
 
 See http://keathmilligan.net/create-reusable-chart-components-with-angular-2-and-d3-js-version-4/ for more information about this example.
 
-UPDATES: (b4youleap) 
+## UPDATES: (b4youleap) 
 Original commit - trying to adapt this approach to create a reusable map component... and then read data from an API.
 
 12/30/2016 - I just learned that shared components can (at least enforced by cli) only be exposed via modules. This new version adds a shared module and exposes the components
