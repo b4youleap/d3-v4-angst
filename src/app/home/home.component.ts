@@ -12,12 +12,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // give everything a chance to get loaded before starting the animation to reduce choppiness
-    // setTimeout(() => {
+    setTimeout(() => {
       this.generateData();
 
       // change the data periodically
-      // setInterval(() => this.generateData(), 3000);
-    // }, 1000);
+      setInterval(() => this.generateData(), 3000);
+    }, 1000);
   }
 
   generateData() {

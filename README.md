@@ -1,4 +1,6 @@
-# Using D3.js version 4 with Angular 2
+# Using D3.js version 4 with Angular 4...
+
+Updated to use Angular 4, Angular CLI 1.0.4, and the latest d3. I need to get around to updating the map component and overall validation of the approach. Since Angular wants to abstract the DOM from the developer, there's a way to get D3 access to it and I'll get it right soon.
 
 Simple example of creating a reusable D3 chart component.
 
@@ -16,7 +18,7 @@ I've also reinstalled d3 using typings using the following commands:
 `npm install d3 --save`
 `npm install @types/d3 --save-dev`
 
-This project was originally generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17. **It has been updated to use version 1.0.0-beta.24**
+This project was originally generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17. **It was then updated to use version 1.0.0-beta.24**
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
